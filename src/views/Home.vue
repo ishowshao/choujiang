@@ -52,7 +52,7 @@ export default {
       return Array.from(winners);
     },
     getNames() {
-      let names = this.names.split(',').map(name => name.trim());
+      let names = Array.from(new Set(this.names.split(',').map(name => name.trim())));
       if (!this.repeat) {
         const winners = this.getWinners();
         names = names.filter(name => !winners.includes(name));
